@@ -1,0 +1,35 @@
+.el-card
+  margin-bottom: 20px
+  border-radius: 0
+
+.el-card__header
+  background-color: lighten($colorGray,5)
+  border-top: 3px solid $colorPrimary
+  // color: $colorSecondary
+  // font-weight: 300
+  font-size: 16px
+  padding: 15px 20px
+
+.el-card__body
+  @extend %clearfix
+  .el-input
+    float: left
+    width: 50%
+    > input
+      border-radius: 0
+  .el-button
+    float: right
+    background-color: $colorPrimary
+    border: 1px solid $colorPrimary
+    border-radius: 0
+    color: $colorWhite
+    font-weight: 300
+    &:disabled
+      background-color: transparent
+      color: $colorPrimary
+      font-weight: 600
+    &:hover
+      background-color: transparent
+      border: 1px solid $colorPrimary
+      color: $colorPrimary
+      font-weight: 600

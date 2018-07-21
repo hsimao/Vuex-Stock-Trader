@@ -1,28 +1,43 @@
 <template>
-  <div>
+  <div class="header">
     <el-menu
-      :default-active="activeIndex2"
-      class="el-menu-demo"
+      :default-active="activeIndex"
+      class="el-menu"
       mode="horizontal"
-      @select="handleSelect"
-      background-color="#545c64"
-      text-color="#fff"
+      background-color="#005874"
+      text-color="#e6e6d4"
       active-text-color="#ffd04b">
-      <el-menu-item index="1">处理中心</el-menu-item>
-      <el-submenu index="2">
-        <template slot="title">我的工作台</template>
-        <el-menu-item index="2-1">选项1</el-menu-item>
-        <el-menu-item index="2-2">选项2</el-menu-item>
-        <el-menu-item index="2-3">选项3</el-menu-item>
-        <el-submenu index="2-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="2-4-1">选项1</el-menu-item>
-          <el-menu-item index="2-4-2">选项2</el-menu-item>
-          <el-menu-item index="2-4-3">选项3</el-menu-item>
-        </el-submenu>
+      <el-menu-item index="1" class="brand"><router-link to="/">Stock Trader</router-link></el-menu-item>
+      <el-menu-item index="2"><router-link to="/portfolio">Portfolio</router-link></el-menu-item>
+      <el-menu-item index="3"><router-link to="/stocks">Stocks</router-link></el-menu-item>
+      <el-submenu index="4" class="right">
+        <template slot="title"><a href="#">Save & Load</a></template>
+        <el-menu-item index="4-1">Save Data</el-menu-item>
+        <el-menu-item index="4-2">Load Data</el-menu-item>
       </el-submenu>
-      <el-menu-item index="3" disabled>消息中心</el-menu-item>
-      <el-menu-item index="4"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+      <el-menu-item index="5" class="right"><a href="#">End Day</a></el-menu-item>
     </el-menu>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      activeIndex: '1'
+    }
+  }
+}
+</script>
+
+<style lang="sass" scoped>
+.el-menu-item > a,.brand a
+  text-decoration: none
+
+.el-menu .right
+  float: right
+
+.el-submenu__title a, .el-menu-item
+  text-decoration: none
+  color: $colorWhite
+</style>
