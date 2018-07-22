@@ -10,22 +10,32 @@
       <el-menu-item index="1" class="brand"><router-link to="/">Stock Trader</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/portfolio">投資組合</router-link></el-menu-item>
       <el-menu-item index="3"><router-link to="/stocks">股市</router-link></el-menu-item>
-      <el-menu-item index="4" class="right"><span class="label">總資產：{{ funds }}</span></el-menu-item>
+      <el-menu-item index="4" class="right"><span class="label">總資產：{{ funds | currency}}</span></el-menu-item>
       <el-submenu index="5" class="right">
         <template slot="title"><a href="#">Save & Load</a></template>
         <el-menu-item index="5-1">Save Data</el-menu-item>
         <el-menu-item index="5-2">Load Data</el-menu-item>
       </el-submenu>
-      <el-menu-item index="6" class="right"><a href="#">End Day</a></el-menu-item>
+      <el-menu-item index="6" class="right" @click="endDay"><a href="#">End Day</a></el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
       activeIndex: '1'
+    }
+  },
+  methods: {
+    ...mapActions([
+      'randomizeStocks'
+    ]),
+    endDay() {
+      this.randomizeStocks()
     }
   },
   computed: {

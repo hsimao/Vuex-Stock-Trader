@@ -6,7 +6,7 @@
       <li>點擊End Day 可進入新的一天股市</li>
     </ul>
     <hr>
-    <p>你的總資產：{{funds}}</p>
+    <p>你的總資產：{{funds | currency}}</p>
   </div>
 </template>
 

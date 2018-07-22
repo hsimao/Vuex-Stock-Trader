@@ -15,7 +15,10 @@ const mutations = {
     state.stocks = stocks
   },
   'RND_STOCKS' (state) {
-
+    state.stocks.forEach(stock => {
+      // 隨機將股票價格 * 0.9 ~ 1.1區間
+      stock.price = Math.round(stock.price * (1 + (Math.floor(Math.random() * (10 + 10 + 1)) - 10) / 100))
+    })
   }
 }
 

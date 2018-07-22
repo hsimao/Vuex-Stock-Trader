@@ -13,6 +13,10 @@ Vue.config.productionTip = false
 Vue.prototype.$ELEMENT = { size: 'small', zIndex: 3000 }
 Vue.use(ElementUI)
 
+Vue.filter('currency', (value) => {
+  return '$' + value.toLocaleString()
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -4,7 +4,7 @@
       <el-card>
         <div slot="header">
           <span>{{stock.name}}</span>
-          <span>${{stock.price}}</span>
+          <span>{{stock.price | currency}}</span>
           <span class="right">數量{{stock.quantity}}</span>
         </div>
         <el-input
