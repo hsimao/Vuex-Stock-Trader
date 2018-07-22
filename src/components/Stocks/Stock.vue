@@ -9,12 +9,12 @@
         <el-input
           type="number"
           placeholder="購買數量"
-          v-model="quantity">
+          v-model="quantity"
+          :class="{warning : insufficientFunds}" >
         </el-input>
         <el-button
           @click="buyStock"
-          :disabled="quantity <= 0">
-          購買
+          :disabled="insufficientFunds || quantity <= 0"> {{insufficientFunds ? '餘額不足' : '購買'}}
         </el-button>
       </el-card>
     </el-col>
@@ -39,6 +39,11 @@ export default {
       console.log(order)
       this.$store.dispatch('buyStock', order)
       this.quantity = 0
+    }
+  },
+  computed: {
+    insufficientFunds() {
+      return this.quantity * this.stock.price > this.$store.getters.funds
     }
   }
 }

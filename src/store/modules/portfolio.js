@@ -26,15 +26,13 @@ const mutations = {
   // 賣出股票的邏輯
   'SELL_STOCK' (state, {stockId, quantity, stockPrice}) {
     const record = state.stocks.find(value => value.id === stockId)
-    console.log(record)
-    console.log('賣出數量', quantity)
     // 如果目前持有股票數量大於要賣的數量, 直接扣除要賣的數量
     if (record.quantity > quantity) {
       record.quantity -= quantity
 
     // 如果目前持有股票數量沒有大於要賣的數量, 直接全部賣出、刪除該筆陣列
     } else {
-      record.stocks.splice(state.stocks.indexOf(record))
+      state.stocks.splice(state.stocks.indexOf(record), 1)
     }
 
     state.funds += quantity * stockPrice

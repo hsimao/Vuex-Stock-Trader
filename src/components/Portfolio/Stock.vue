@@ -10,12 +10,13 @@
         <el-input
           type="number"
           placeholder="購買數量"
-          v-model="quantity">
+          v-model="quantity"
+          :class="{warning : insufficientQuantity}">
         </el-input>
         <el-button
           @click="sellStock"
-          :disabled="quantity <= 0">
-          賣出
+          :disabled="insufficientQuantity || quantity <= 0">
+          {{ insufficientQuantity ? '超出' : '賣出'}}
         </el-button>
       </el-card>
     </el-col>
@@ -43,6 +44,12 @@ export default {
         quantity: parseInt(this.quantity)
       }
       this.sell(order)
+      this.quantity = 0
+    }
+  },
+  computed: {
+    insufficientQuantity() {
+      return this.quantity > this.stock.quantity
     }
   }
 }

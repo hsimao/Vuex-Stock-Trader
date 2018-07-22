@@ -4,6 +4,8 @@ $colorPrimaryLight: #1c819e
 $colorSecondary: #ffbe00
 $colorWhite: #e6e6d4
 $colorGray: #ADB0B3
+$colorWarn: #ff2768
+
 
 // $extend
 %clearfix
@@ -12,6 +14,7 @@ $colorGray: #ADB0B3
     display: table
   &:after
     clear: both
+
 
 // $utility 工具
 .right
@@ -52,3 +55,33 @@ $colorGray: #ADB0B3
       border: 1px solid $colorPrimary
       color: $colorPrimary
       font-weight: 600
+
+
+// $input
+.el-input.warning input
+  border: solid 1px $colorWarn
+  color: $colorWarn
+  position: relative
+  animation: .4s shake cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+@keyframes shake
+  0%
+    transform: rotate(0deg)
+  15%
+    transform: rotate(-2deg)
+  40%
+    transform: rotate(2deg)
+  65%
+    transform: rotate(-2deg)
+  90%
+    transform: rotate(2deg)
+  100%
+    transform: rotate(0deg)
+
+
+// $label
+.label
+  padding: 6px 15px
+  border-radius: 100px
+  background-color: $colorSecondary
+  color: $colorPrimary
