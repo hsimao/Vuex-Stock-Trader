@@ -9,6 +9,7 @@
 
 <script>
 import Stock from './Stock'
+
 export default {
   computed: {
     stocks() {

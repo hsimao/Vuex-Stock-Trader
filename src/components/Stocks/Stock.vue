@@ -4,7 +4,7 @@
       <el-card>
         <div slot="header">
           <span>{{stock.name}}</span>
-          <small>{{stock.price}}</small>
+          <span>${{stock.price}}</span>
         </div>
         <el-input
           type="number"
@@ -37,9 +37,9 @@ export default {
         quantity: this.quantity
       }
       console.log(order)
+      this.$store.dispatch('buyStock', order)
+      this.quantity = 0
     }
   }
 }
 </script>
-
-<style lang="sass" src="./stock.sass"></style>

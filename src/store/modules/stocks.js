@@ -21,7 +21,8 @@ const mutations = {
 
 const actions = {
   buyStock: ({commit}, order) => {
-    commit()
+    // 調用portfolio.js內的mutations方法
+    commit('BUY_STOCK', order)
   },
   initStocks: ({commit}) => {
     commit('SET_STOCKS', stocks)
