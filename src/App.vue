@@ -45,7 +45,7 @@ export default {
   font-family: 'Helvetica Neue', 'PingFang TC', 'Heiti TC', '微軟正黑體', sans-serif
 
 #app.bgImage
-  background: linear-gradient(rgba(black,0.5), rgba(black,0.7)), url('./assets/bg.jpg')
+  background: linear-gradient(rgba(black,0.5), rgba(black,0.7)), url(~./assets/img/bg.jpg)
   background-size: cover
   height: 100vh
 

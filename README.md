@@ -1,21 +1,11 @@
-# vuex-stock-trader
+# Stock Trader 股票交易模擬實作
 
-> A Vue.js project
+#### live demo https://hsimao.github.io/Vuex-Stock-Trader/
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### 練習技能
+1. Vuejs
+2. Vuex
+3. Firebase
+4. axios
+5. 轉場動畫
+6. Element-ui
