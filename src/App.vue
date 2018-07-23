@@ -67,6 +67,7 @@ export default {
   z-index: 10
   width: 100%
   height: 100%
+  pointer-events: none
   &-item
     position: relative
     left: 0

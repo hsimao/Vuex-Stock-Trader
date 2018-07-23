@@ -26,5 +26,6 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'space-before-function-paren': 0, // functino abc() abc跟() 間隔為0
+    'no-new': 0 // 禁止 new 時沒有使用變數儲存報錯
   }
 }
