@@ -59,7 +59,7 @@ exports.cssLoaders = function (options) {
   //////////////
   // == sass 全域設置 Start
   function resolveResouce(name) {
-    return path.resolve(__dirname, '../src/css/style.sass');
+    return path.resolve(__dirname, '../src/assets/css/style.sass');
   }
 
   function generateSassResourceLoader() {
@@ -76,7 +76,7 @@ exports.cssLoaders = function (options) {
         loader: 'sass-resources-loader',
         options: {
           // it need a absolute path
-          resources: resolveResouce('../src/css/style.sass')
+          resources: resolveResouce('../src/assets/css/style.sass')
         }
       }
     ];
