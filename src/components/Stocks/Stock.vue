@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-col :xs="12" :sm="6">
+    <el-col :xs="24" :md="6">
       <el-card>
         <div slot="header">
-          <span>{{stock.name}}</span>
+          <span class="title">{{stock.name}}</span>
           <span>{{stock.price | currency}}</span>
         </div>
         <el-input

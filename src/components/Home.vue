@@ -1,21 +1,37 @@
 <template>
   <div>
-    <h1>股票交易或查看您目前持有的股票</h1>
-    <ul>
-      <li>你可以儲存，或載入您的資料</li>
-      <li>點擊End Day 可進入新的一天股市</li>
-    </ul>
-    <hr>
-    <p>你的總資產：{{funds | currency}}</p>
+    <div class="home-info">
+      <h1 class="title">股票交易或查看您目前持有的股票</h1>
+    </div>
+    <chart></chart>
   </div>
 </template>
 
 <script>
+import Chart from './Chart'
+
 export default {
   computed: {
     funds() {
       return this.$store.getters.funds
     }
+  },
+  components: {
+    Chart
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.home-info
+  margin-top: 30px
+  background-color: rgba($colorPrimary, 1)
+  box-shadow: 0 20px 40px 0 rgba(black,0.2)
+  padding: 20px
+  .title
+    margin: 0
+    color: $colorWhite
+    font-weight: 300
+    font-size: 26px
+
+</style>

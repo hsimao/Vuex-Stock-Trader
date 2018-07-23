@@ -8,16 +8,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    transition: false
+    transition: false,
+    bgImage: false
   },
   mutations: {
     'UPDATE_TRANSLATE' (state) {
       state.transition = !state.transition
+    },
+    'UPDATE_BG' (state, type) {
+      state.bgImage = type
     }
   },
   actions: {
     updateTransition: ({commit}) => {
       commit('UPDATE_TRANSLATE')
+    },
+    updateBG: ({commit}, type) => {
+      commit('UPDATE_BG', type)
     },
     // 跟資料庫取得資料後儲存到store
     setData: ({commit}) => {
@@ -41,6 +48,9 @@ export default new Vuex.Store({
   getters: {
     transition: state => {
       return state.transition
+    },
+    bgImage: state => {
+      return state.bgImage
     }
   },
   modules: {

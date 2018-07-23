@@ -6,6 +6,19 @@ $colorWhite: #e6e6d4
 $colorGray: #ADB0B3
 $colorWarn: #ff2768
 
+// $mixin
+@mixin rwd($breakpoint)
+	@if $breakpoint == xs
+		@media (max-width: 375px) { @content }
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+	@if $breakpoint == pad
+		@media (max-width: 768px) { @content }
+	@if $breakpoint == md
+		@media (max-width: 1024px) { @content }
+	@if $breakpoint == lg
+		@media (max-width: 1200px) { @content }
+
 body
   margin: 0
 
@@ -22,11 +35,17 @@ body
 .right
   float: right
 
+.mt-50
+  margin-top: 50px
+
 
 // $cover 覆蓋 element-ui 樣式
 .el-card
   margin-bottom: 20px
   border-radius: 0
+  border: none
+  .header span
+    color: $colorPrimary
 
 .el-card__header
   background-color: lighten($colorGray,5)
@@ -79,7 +98,6 @@ body
   100%
     transform: rotate(0deg)
 
-
 // $label
 .label
   padding: 6px 15px
@@ -87,3 +105,4 @@ body
   border-radius: 100px
   background-color: $colorSecondary
   color: $colorPrimary
+  text-align: center

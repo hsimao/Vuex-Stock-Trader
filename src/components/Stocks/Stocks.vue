@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>Stocks component</h1>
-    <el-row :gutter="10">
+    <el-row :gutter="10" class="mt-50">
       <stock v-for="stock in stocks" :key="stock.id" :stock="stock"></stock>
     </el-row>
   </div>

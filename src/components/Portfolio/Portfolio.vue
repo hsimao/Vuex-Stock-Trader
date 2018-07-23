@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Portfolio component</h1>
-    <el-row :gutter="10">
+    <el-row :gutter="10" class="mt-50">
+      <div v-if="stocks.length <= 0" class="label">目前沒有選購任何一張股票</div>
       <stock v-for="stock in stocks" :key="stock.id" :stock="stock"></stock>
     </el-row>
   </div>

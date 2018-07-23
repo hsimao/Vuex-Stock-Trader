@@ -37,6 +37,7 @@ export default {
     ...mapActions([
       'randomizeStocks',
       'updateTransition',
+      'updateBG',
       'setData'
     ]),
     endDay() {
@@ -51,6 +52,12 @@ export default {
           this.disabled = false
         }, 1000)
         this.activeIndex = key
+      }
+      // 如果在首頁則不顯示背景圖
+      if (this.activeIndex !== '1') {
+        this.updateBG(true)
+      } else {
+        this.updateBG(false)
       }
     },
     saveData() {
@@ -85,6 +92,10 @@ export default {
 <style lang="sass" scoped>
 .disabled
   pointer-events: none
+
+.el-menu
+  border-bottom: none
+  box-shadow: 0 4px 6px 0 rgba(black,0.2)
 .el-menu-item
   padding: 0
   > a

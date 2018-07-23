@@ -1,17 +1,17 @@
 <template>
-  <div id="app">
+  <div id="app" :class="{bgImage: bgImage}">
+    <Header/>
+    <div class="side-bg" :class="{active: transition}">
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+      <div class="side-bg-item"></div>
+    </div>
     <div class="container">
-      <Header/>
-      <div class="side-bg" :class="{active: transition}">
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-        <div class="side-bg-item"></div>
-      </div>
       <transition name="side" mode="out-in">
         <router-view/>
       </transition>
@@ -27,7 +27,8 @@ export default {
   name: 'App',
   computed: {
     ...mapGetters([
-      'transition'
+      'transition',
+      'bgImage'
     ])
   },
   components: {
@@ -40,6 +41,18 @@ export default {
 </script>
 
 <style lang="sass">
+*
+  font-family: 'Helvetica Neue', 'PingFang TC', 'Heiti TC', '微軟正黑體', sans-serif
+
+#app.bgImage
+  background: linear-gradient(rgba(black,0.5), rgba(black,0.7)), url('./assets/bg.jpg')
+  background-size: cover
+  height: 100vh
+
+.container
+  max-width: 1140px
+  margin: 0 auto
+  padding: 0 20px
 .side-enter-active
   animation: side-in .3s ease-out forwards
 
