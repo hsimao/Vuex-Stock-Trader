@@ -3,10 +3,12 @@
     <el-menu
       :default-active="activeIndex"
       class="el-menu"
+      :class="{disabled: disabled}"
       mode="horizontal"
       background-color="#005874"
       text-color="#e6e6d4"
-      active-text-color="#ffd04b">
+      active-text-color="#ffd04b"
+      @select="handleSelect">
       <el-menu-item index="1" class="brand"><router-link to="/">Stock Trader</router-link></el-menu-item>
       <el-menu-item index="2"><router-link to="/portfolio">投資組合</router-link></el-menu-item>
       <el-menu-item index="3"><router-link to="/stocks">股市</router-link></el-menu-item>
@@ -27,15 +29,28 @@ import { mapActions } from 'vuex'
 export default {
   data() {
     return {
-      activeIndex: '1'
+      activeIndex: '1',
+      disabled: false
     }
   },
   methods: {
     ...mapActions([
-      'randomizeStocks'
+      'randomizeStocks',
+      'updateTransition'
     ]),
     endDay() {
       this.randomizeStocks()
+    },
+    handleSelect(key) {
+      if (this.activeIndex !== key) {
+        this.updateTransition()
+        this.disabled = true
+        setTimeout(() => {
+          this.updateTransition()
+          this.disabled = false
+        }, 1000)
+        this.activeIndex = key
+      }
     }
   },
   computed: {
@@ -47,6 +62,14 @@ export default {
 </script>
 
 <style lang="sass" scoped>
+.disabled
+  pointer-events: none
+.el-menu-item
+  padding: 0
+  > a
+    display: inline-block
+    padding: 0 20px
+
 .el-menu-item > a,.brand a
   text-decoration: none
 
@@ -56,4 +79,5 @@ export default {
 .el-submenu__title a, .el-menu-item
   text-decoration: none
   color: $colorWhite
+
 </style>
